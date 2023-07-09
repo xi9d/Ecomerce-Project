@@ -11,6 +11,7 @@ function AddProduct() {
       description:"",
       originalPrice:"",
       discountPrice:"",
+      category:"",
       image:null
     }
   );
@@ -33,6 +34,7 @@ function AddProduct() {
     formData.append('description', product.description);
     formData.append('originalPrice', product.originalPrice);
     formData.append('discountPrice', product.discountPrice);
+    formData.append('category', product.category);
     formData.append('image', product.image);
     ProductsService.addProduct(formData).then((response) => {
       console.log(response);
@@ -47,7 +49,7 @@ function AddProduct() {
     <h1 className='p-5 font-bold capitalize text-slate-600 text-lg'>Add Product</h1>
     <form method='post' className='text-left px-4 py-4 font-semibold text-slate-600 capitalize'>
 
-        <label for="title">Title</label>
+        <label for="fname">Title</label>
         <input type="text" id="fname" name="title" value={product.title} 
         className='border h-10 px-2  text-lg w-full'
         onChange={(e) =>handleChange(e)}/><br/>
@@ -56,19 +58,41 @@ function AddProduct() {
         <textarea id="desc" className='border h-32 px-2  text-lg w-full' name='description' value={product.description}
         onChange={(e) =>handleChange(e)}/><br/>
 
-        <label for="price"> Original Price</label>
-        <input type='text' className='border h-10 px-2  text-lg w-full'
+        <label for="price1"> Original Price</label>
+        <input type='text' id='price1' className='border h-10 px-2  text-lg w-full'
          name='originalPrice' value={product.originalPrice}
          onChange={(e) =>handleChange(e)}/>
 
         <label for="price"> Discount Price</label>
-        <input type='text' className='border h-10 px-2  text-lg w-full'
+        <input type='text'id='price2' className='border h-10 px-2  text-lg w-full'
          name='discountPrice' value={product.discountPrice}
          onChange={(e) =>handleChange(e)}/>
+
+      <label for="my-dropdown">Select an category</label><br/>
+      <select id="my-dropdown" name='category' value={product.category} onChange={(e) => handleChange(e)}
+      className='px-5 py-4 border bg-slate-100 capitalize'>
+        <option value="">categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Home Appliances">Home applicances</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Beauty and Personal Care">Beauty and Personal Care</option>
+        <option value="Sports and Fitness">Sports and Fitness</option>
+        <option value="Books and Stationery">Books and Stationery</option>
+        <option value="Toys and Games">Toys and Games</option>
+        <option value="Health and Wellness">Health and Wellness</option>
+        <option value="Grocery">Grocery</option>
+        <option value="Others">Others</option>
+      </select>
+      <br/>
+
         <label for="pic">Picture:</label>
         <input type="file" id="pic" name="image" accept='image/*'
-         className='border h-10 px-2  text-lg w-full'
+         className='border h-15 px-2 py-1 text-lg w-full'
          onChange={(e) =>handleChange(e)}/><br/>
+        
+
+
         <button type="submit" 
         className='px-4 py-4 mx-auto my-5  font-bold text-white rounded-md w-full bg-orange-700'
         onClick={(e) =>saveProducts(e)}>Submit</button>

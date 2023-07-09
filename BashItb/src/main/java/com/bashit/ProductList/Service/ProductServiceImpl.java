@@ -24,7 +24,8 @@ public class ProductServiceImpl implements ProductService{
                               String title,
                               String description,
                               String originalPrice,
-                              String discountPrice) {
+                              String discountPrice,
+                              String category) {
         Product product = new Product();
         String fileName = StringUtils.cleanPath(image.getOriginalFilename());
         if(fileName.contains(".."))
@@ -40,6 +41,7 @@ public class ProductServiceImpl implements ProductService{
         product.setDescription(description);
         product.setOriginalPrice(originalPrice);
         product.setDiscountPrice(discountPrice);
+        product.setCategory(category);
         productRepository.save(product);
         return product;
     }
@@ -55,6 +57,7 @@ public class ProductServiceImpl implements ProductService{
                                String description,
                                String originalPrice,
                                String discountPrice,
+                               String category,
                                MultipartFile image)  {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if (optionalProduct.isPresent()){
@@ -63,6 +66,8 @@ public class ProductServiceImpl implements ProductService{
             product.setDescription(description);
             product.setOriginalPrice(originalPrice);
             product.setDiscountPrice(discountPrice);
+            product.setCategory(category);
+
             try {
                 product.setImage(Base64.getEncoder().encodeToString(image.getBytes()));
             } catch (IOException e) {
@@ -93,13 +98,18 @@ public class ProductServiceImpl implements ProductService{
         return false;
     }
 
+//    @Override
+//    public List<Product> getProductByTitle(String title) {
+//        Optional<Product> optionalProduct = productRepository.findAllByTitle(title);
+//        if (optionalProduct.isPresent()){
+//            List<Product> products = (List<Product>) optionalProduct.get();
+//            return products;
+//        }
+//        return null;
+//    }
+
     @Override
-    public List<Product> getProductByTitle(String title) {
-        Optional<Product> optionalProduct = productRepository.findAllByTitle(title);
-        if (optionalProduct.isPresent()){
-            List<Product> products = (List<Product>) optionalProduct.get();
-            return products;
-        }
-        return null;
+    public List<Product> getAllProductsByCategory( String category) {
+        return productRepository.findAllByCategory(category);
     }
 }

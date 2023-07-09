@@ -38,7 +38,7 @@ function Body() {
 
   return (
     <div className="w-full">
-      <h1 className="text-slate-700 font-bold capitalize text-lg m-5">Nike Shoes</h1>
+      <h1 className="text-slate-700 font-bold capitalize text-lg m-5"></h1>
       <Products products={products} loading={loading} />
       <div className="flex justify-center items-center text-white">
         <button

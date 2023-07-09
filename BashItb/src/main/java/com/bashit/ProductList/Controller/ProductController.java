@@ -28,8 +28,9 @@ public class ProductController {
                                                  @RequestPart("description")String description,
                                                  @RequestPart("originalPrice")String originalPrice,
                                                  @RequestPart("discountPrice")String discountPrice,
+                                                 @RequestPart("category")String category,
                                                  @RequestPart("image")MultipartFile  image){
-        Product product = productService.addProduct(image, title, description, originalPrice, discountPrice);
+        Product product = productService.addProduct(image, title, description, originalPrice, discountPrice,category);
         return ResponseEntity.ok(product);
     }
 
@@ -47,19 +48,20 @@ public class ProductController {
         Product product = productService.getProductById(id);
         return ResponseEntity.ok(product);
     }
-    @GetMapping("/{title}")
-    public ResponseEntity<List<Product>> getProductByTitle(@PathVariable String title){
-        List<Product> product = productService.getProductByTitle(title);
-        return ResponseEntity.ok(product);
-    }
+//    @GetMapping("/{title}")
+//    public ResponseEntity<List<Product>> getProductByTitle(@PathVariable String title){
+//        List<Product> product = productService.getProductByTitle(title);
+//        return ResponseEntity.ok(product);
+//    }
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProductById(@PathVariable Long id,
                                                      @RequestPart("title") String title,
                                                      @RequestPart("description")String description,
                                                      @RequestPart("originalPrice")String originalPrice,
                                                      @RequestPart("discountPrice")String discountPrice,
+                                                     @RequestPart("category")String category,
                                                      @RequestPart("image")MultipartFile  image){
-        Product product = productService.editProduct(id,title,description,originalPrice,discountPrice,image);
+        Product product = productService.editProduct(id,title,description,originalPrice,discountPrice,category,image);
         return ResponseEntity.ok(product);
     }
     @DeleteMapping("/{id}")
@@ -68,6 +70,13 @@ public class ProductController {
         Map<String, Boolean> removed = new HashMap<>();
         removed.put("Deleted",deleted);
         return ResponseEntity.ok(removed);
+    }
+
+    // TODO: get products by categories
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<Product>> getProductByCategory(@PathVariable String category){
+        List<Product> productsByCategory = productService.getAllProductsByCategory(category);
+        return ResponseEntity.ok(productsByCategory);
     }
 
 

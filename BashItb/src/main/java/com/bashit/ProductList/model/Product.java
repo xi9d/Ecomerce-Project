@@ -16,6 +16,7 @@ public class Product {
     private String description;
     private String originalPrice;
     private String discountPrice;
+    private String category;
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     private String image;

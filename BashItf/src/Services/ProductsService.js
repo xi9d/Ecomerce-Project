@@ -11,6 +11,15 @@ class ProductsService{
           },
         });
       };
+      static getAllProductsByCategory(page, category) {
+        return axios.get(`${PRODUCT_API_BASE_URL}/${category}`, {
+          params: { page },
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+      }
+      
     static getProductById(id){
         return axios.get(
             PRODUCT_API_BASE_URL +"/"+id

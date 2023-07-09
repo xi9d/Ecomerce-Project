@@ -10,15 +10,19 @@ import java.util.List;
 public interface ProductService {
 
 
-    Product addProduct(MultipartFile image, String title, String description, String originalPrice, String discountPrice);
+    Product addProduct(MultipartFile image, String title, String description, String originalPrice, String discountPrice, String category);
 
     Page<Product> getAllProducts(Pageable pageable);
 
-    Product editProduct(Long id, String title, String description, String originalPrice, String discountPrice, MultipartFile image);
+    Product editProduct(Long id, String title, String description, String originalPrice, String discountPrice,String category, MultipartFile image);
 
     Product getProductById(Long id);
 
     boolean deleteProductById(Long id);
 
-    List<Product> getProductByTitle(String title);
+//    List<Product> getProductByTitle(String title);
+
+    List<Product> getAllProductsByCategory( String category);
+
+
 }

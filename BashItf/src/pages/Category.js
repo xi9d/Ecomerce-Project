@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import ProductsService from '../Services/ProductsService';
 
 function Category() {
+  
+  
+
   return (
-    <div>Category</div>
-  )
+    <div> categories</div>
+  );
 }
 
-export default Category
+export default Category;

@@ -22,6 +22,7 @@ function ViewProduct() {
             <h1 className='font-bold text-4xl text-orange-600'>{product.title}</h1>
             <h2 className='text-slate-600'>Description</h2>
             <p className='text-slate-900'>{product.description}</p>
+            
             <h2 className='text-slate-600'>Pricing</h2>
             <p className='text-2xl text-green-600 font-bold'>Now: Ksh {product.discountPrice}</p>
             <p className='text-decoration-line: line-through italic text-slate-400 text-sm'>

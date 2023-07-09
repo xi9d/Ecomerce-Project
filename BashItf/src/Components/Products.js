@@ -1,54 +1,52 @@
-import React, { useState } from 'react'
-import image from "./templatepic1.png"
-import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react';
-import ProductsService from '../Services/ProductsService';
-function Products() {
-    const navigate = useNavigate();
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-    const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(false)
-    useEffect(() => {
-      const fetchData = async () =>{
-        setLoading(true);
-        try{
-          const response = await ProductsService.getAllProducts();
-          setProduct(response.data);
-        }catch (e){
-          console.log(e)
-        }
-        setLoading(false)
-      };
-      fetchData();
-    },[]);
+function Products({ products, loading, page, totalPages }) {
+  const navigate = useNavigate();
 
-    return (
-      <>
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-          {product &&
-            product.map((item) => (
-              <div key={item.id} className="px-2 py-2 grid grid-cols-1 w-auto h-auto lg:mx-5 mx-auto shadow-sm">
-                
-                <div className="">
-                  <h1 className="capitalize font-semibold text-slate-700">{item.title}</h1>
-                  <p className="font-bold">Ksh {item.discountPrice}</p>
-                  <p className="text-decoration-line: line-through italic text-slate-400 text-sm">
-                    Ksh {item.originalPrice}
-                  </p>
-                  <button
-                    className="bg-orange-700 px-2 py-2 w-full border mx-auto text-white font-semibold rounded-md my-2"
-                    onClick={() => navigate("/view")}
-                  >
-                    View Product
-                  </button>
-                </div>
-              </div>
-            ))}
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const handleViewProduct = (productId) => {
+    const selectedProduct = products.find((item) => item.id === productId);
+    navigate(`/viewproduct/${productId}`, { state: { product: selectedProduct } });
+  };
+
+  return (
+    <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+      {products.map((item) => (
+        <div key={item.id} className="px-2 py-2 grid grid-cols-1 w-auto h-auto lg:mx-5 mx-auto my-5 shadow-md">
+          <div className="">
+            {item.image && (
+              <img
+                src={`data:image/png;base64,${item.image}`}
+                alt="Product"
+                className="w-full h-48 object-cover rounded-md hover:scale-125 hover:transition duration-500 ease-in-out cursor-pointer"
+                onClick={() => handleViewProduct(item.id)}
+              />
+            )}
+            <h1 className="capitalize font-semibold text-slate-700 cursor-pointer"onClick={() => handleViewProduct(item.id)}>{item.title}</h1>
+            <p className="font-bold">Ksh {item.discountPrice}</p>
+            <p className="text-decoration-line: line-through italic text-slate-400 text-sm">
+              Ksh {item.originalPrice}
+            </p>
+
+            <button
+              className="bg-orange-700 px-2 py-2 w-full border mx-auto text-white font-semibold rounded-md my-2"
+              onClick={() => handleViewProduct(item.id)}
+            >
+              View Product
+            </button>
+          </div>
         </div>
-      </>
-    );
-    
-    
+      ))}
+      <div className="flex justify-center items-center text-white">
+        <p>Page: {page + 1}</p>
+        <p>Total Pages: {totalPages}</p>
+      </div>
+    </div>
+  );
 }
 
-export default Products
+export default Products;

@@ -13,7 +13,7 @@ function Navbar() {
     <div className=' bg-green-900  flex w-full space-x-40 sticky lg:justify-between h-fit  shadow-md'>
       
       <h1 className=" text-orange-400 h-8 mt-5 ml-5 cursor-pointer font-bold capitalize lg:text-4xl md:text-lg sm:text-sm"
-      onClick={() => navigate("/index")}>BashIt</h1>
+      onClick={() => navigate("/index")}>FoxBash Inc.</h1>
       
       <div className='flex flex-nowrap'>
         <input type='search'placeholder='Search products' 

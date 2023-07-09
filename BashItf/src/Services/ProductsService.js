@@ -3,16 +3,14 @@ import axios from 'axios';
 
 const PRODUCT_API_BASE_URL = "http://localhost:8080/api/v1/product";   
 class ProductsService{
-    static getAllProducts(){
-        return axios.get(
-            PRODUCT_API_BASE_URL, {
-                headers:{
-                    'Content-Type':'multipart/form-data',
-                },
-            }
-            );
-
-    };
+    static getAllProducts(page) {
+        return axios.get(PRODUCT_API_BASE_URL, {
+          params: { page },
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+      };
     static getProductById(id){
         return axios.get(
             PRODUCT_API_BASE_URL +"/"+id

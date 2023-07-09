@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Body from "./pages/Body";
 import Footer from "./Components/Footer";
 import Main from "./pages/Main";
 import Navbar from "./Components/Navbar";
@@ -22,7 +21,7 @@ function App() {
       <Route path="/" element={<Main/>}/>
       <Route path="/index" element={<Main/>}/>
       <Route path="/account" element={<SignUp/>}/>
-      <Route path="/view" element={<ViewProduct/>}/>
+      <Route path="/viewproduct/:id" element={<ViewProduct />} />
       <Route path="/login" element={<Login/>}/>
       <Route path="/category" element={<Category/>}/>
       <Route path="/addProduct" element={<AddProduct/>}/>

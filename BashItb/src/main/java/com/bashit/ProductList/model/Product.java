@@ -1,9 +1,7 @@
 package com.bashit.ProductList.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -16,8 +14,24 @@ public class Product {
     private String description;
     private String originalPrice;
     private String discountPrice;
+    private double save;
     private String category;
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
+
+
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", originalPrice='" + originalPrice + '\'' +
+                ", discountPrice='" + discountPrice + '\'' +
+                ", category='" + category + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }

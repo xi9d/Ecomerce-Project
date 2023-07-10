@@ -9,8 +9,8 @@ function AddProduct() {
       id:"",
       title:"",
       description:"",
-      originalPrice:"",
-      discountPrice:"",
+      originalPrice:null,
+      discountPrice:null,
       category:"",
       image:null
     }
@@ -49,26 +49,26 @@ function AddProduct() {
     <h1 className='p-5 font-bold capitalize text-slate-600 text-lg'>Add Product</h1>
     <form method='post' className='text-left px-4 py-4 font-semibold text-slate-600 capitalize'>
 
-        <label for="fname">Title</label>
+        <label htmlFor="fname">Title</label>
         <input type="text" id="fname" name="title" value={product.title} 
         className='border h-10 px-2  text-lg w-full'
         onChange={(e) =>handleChange(e)}/><br/>
 
-        <label for="desc">Description</label>
+        <label htmlFor="desc">Description</label>
         <textarea id="desc" className='border h-32 px-2  text-lg w-full' name='description' value={product.description}
         onChange={(e) =>handleChange(e)}/><br/>
 
-        <label for="price1"> Original Price</label>
-        <input type='text' id='price1' className='border h-10 px-2  text-lg w-full'
+        <label htmlFor="price1"> Original Price</label>
+        <input type='number' id='price1' className='border h-10 px-2  text-lg w-full'
          name='originalPrice' value={product.originalPrice}
          onChange={(e) =>handleChange(e)}/>
 
-        <label for="price"> Discount Price</label>
-        <input type='text'id='price2' className='border h-10 px-2  text-lg w-full'
+        <label htmlFor="price"> Discount Price</label>
+        <input type='number'id='price2' className='border h-10 px-2  text-lg w-full'
          name='discountPrice' value={product.discountPrice}
          onChange={(e) =>handleChange(e)}/>
 
-      <label for="my-dropdown">Select an category</label><br/>
+      <label htmlFor="my-dropdown">Select an category</label><br/>
       <select id="my-dropdown" name='category' value={product.category} onChange={(e) => handleChange(e)}
       className='px-5 py-4 border bg-slate-100 capitalize'>
         <option value="">categories</option>
@@ -86,7 +86,7 @@ function AddProduct() {
       </select>
       <br/>
 
-        <label for="pic">Picture:</label>
+        <label htmlFor="pic">Picture:</label>
         <input type="file" id="pic" name="image" accept='image/*'
          className='border h-15 px-2 py-1 text-lg w-full'
          onChange={(e) =>handleChange(e)}/><br/>

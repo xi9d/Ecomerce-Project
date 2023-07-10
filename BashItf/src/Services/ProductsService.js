@@ -7,17 +7,14 @@ class ProductsService{
         return axios.get(PRODUCT_API_BASE_URL, {
           params: { page },
           headers: {
-            'Content-Type': 'multipart/form-data',
+            'Content-Type': 'application/octet-stream',
           },
         });
       };
-      static getAllProductsByCategory(page, category) {
-        return axios.get(`${PRODUCT_API_BASE_URL}/${category}`, {
-          params: { page },
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
+      static getAllProductsByCategory(category) {
+        return axios.get(
+          PRODUCT_API_BASE_URL + "/category/"+category
+        );
       }
       
     static getProductById(id){
@@ -29,7 +26,7 @@ class ProductsService{
         return axios.post(
             PRODUCT_API_BASE_URL, product, {
                 headers:{
-                    'Content-Type':'multipart/form-data',
+                    'Content-Type':'application/octet-stream',
                 },
             }
         );

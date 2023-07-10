@@ -23,7 +23,7 @@ function App() {
       <Route path="/account" element={<SignUp/>}/>
       <Route path="/viewproduct/:id" element={<ViewProduct />} />
       <Route path="/login" element={<Login/>}/>
-      <Route path="/category" element={<Category/>}/>
+      <Route path="/category/:category" element={<Category/>}/>
       <Route path="/addProduct" element={<AddProduct/>}/>
       <Route path="/cart" element={<ShoppingCart/>}/>
       <Route path="*" element={<h1 className="max-w-full mx-auto max-y-full my-auto px-6 py-6 text-lg text-red-500">Not Found </h1>}/>

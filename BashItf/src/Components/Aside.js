@@ -12,27 +12,37 @@ function Aside() {
   <div className='flex flex-col mx-2 my-4'>
   <p className='text-slate-600 font-bold text-lg '>Categories</p>
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Electronics')}>Electronics</p>
+  onClick={() => openCategory('electronics')}>Electronics</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Clothing')}>Clothing</p>
+  onClick={() => openCategory('clothing')}>Clothing</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Home Appliances')}>Home Appliances</p>
+  onClick={() => openCategory('home Appliances')}>Home Appliances</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Furniture')}>Furniture</p>
+  onClick={() => openCategory('furniture')}>Furniture</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Beauty and Personal Care')}>Beauty and Personal Care</p>
+  onClick={() => openCategory('beauty and Personal Care')}>Beauty and Personal Care</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Sports and Fitness')}>Sports and Fitness</p>
+  onClick={() => openCategory('sports and Fitness')}>Sports and Fitness</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Books and Stationery')}>Books and Stationery</p>
+  onClick={() => openCategory('books and Stationery')}>Books and Stationery</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Toys and Games')}>Toys and Games</p>
+  onClick={() => openCategory('toys and Games')}>Toys and Games</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Health and Wellness')}>Health and Wellness</p>
+  onClick={() => openCategory('health and Wellness')}>Health and Wellness</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Grocery')}>Grocery</p>
+  onClick={() => openCategory('grocery')}>Grocery</p>
+
   <p className='text-slate-600 font-semibold text-md cursor-pointer hover:text-orange-700'
-  onClick={() => openCategory('Others')}>Others</p>
+  onClick={() => openCategory('others')}>Others</p>
   </div>
   
       <br/>

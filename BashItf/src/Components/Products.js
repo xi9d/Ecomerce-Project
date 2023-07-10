@@ -12,6 +12,7 @@ function Products({ products, loading, page, totalPages }) {
     const selectedProduct = products.find((item) => item.id === productId);
     navigate(`/viewproduct/${productId}`, { state: { product: selectedProduct } });
   };
+  console.log(products);
 
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
@@ -30,6 +31,9 @@ function Products({ products, loading, page, totalPages }) {
             <p className="font-bold">Ksh {item.discountPrice}</p>
             <p className="text-decoration-line: line-through italic text-slate-400 text-sm">
               Ksh {item.originalPrice}
+            </p>
+            <p className=" italic text-red-200 text-sm">
+             {item.save}%
             </p>
 
             <button

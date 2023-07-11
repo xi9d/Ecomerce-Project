@@ -1,9 +1,14 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import CartService from '../Services/CartService';
 
 function ViewProduct() {
   const location = useLocation();
   const { product } = location.state;
+
+  const addToCart= (productId) =>{
+    CartService.addProductToCart(productId);
+  }
 
   return (
     <div>
@@ -29,7 +34,8 @@ function ViewProduct() {
               Was: Ksh {product.originalPrice}
             </p>
             <div className='max-w-2xl mx-auto '>
-          <button className='text-white rounded-lg font-bold px-2 py-3 bg-orange-700'>Add to cart</button>
+          <button className='text-white rounded-lg font-bold px-2 py-3 bg-orange-700'
+          onClick={(e)=>addToCart(product.id)}>Add to cart</button>
         </div>
           </div>
         </div>

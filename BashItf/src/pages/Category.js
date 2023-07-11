@@ -3,16 +3,17 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ProductsService from '../Services/ProductsService';
 
-function Category({ category }) {
+function Category() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     // Fetch data from the backend API
-    const fetchData = async () => {
+    const fetchData = async (category) => {
       try {
         const response = await  ProductsService.getAllProductsByCategory(category);
         setProducts(response.data);
-        console.log(response.data);
+        console.log("json one", (response.data));
+        
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -20,6 +21,8 @@ function Category({ category }) {
 
     fetchData();
   }, []);
+
+
 
   const navigate = useNavigate();
 

@@ -24,7 +24,7 @@ function ShoppingCart() {
   const deleteProduct = async (id) =>{
     try {
         await CartService.deleteProductFromCart(id);
-        setProducts(prevProducts => prevProducts.filter((product) => product.id !== id));
+        setProducts(prevProducts => prevProducts.filter((product) => product.product.id !== id));
     } catch (error) {
         console.log(error);
     }
@@ -51,19 +51,19 @@ function ShoppingCart() {
               </tr>
             </thead>
             <tbody className="bg-white">
-              {products.map((product) => (
-                <tr key={product.id} className="my-4 p-2">
+              {products.map((prod) => (
+                <tr key={prod.product.id} className="my-4 px-3 py-3">
                   <td className="text-left">
-                    <div className="text-sm text-gray-500">{product.title}</div>
+                    <div className="text-sm text-gray-500">{prod.product.title}</div>
                   </td>
                   <td className="text-left">
-                    <div className="text-sm text-gray-500">{product.discountPrice}</div>
+                    <div className="text-sm text-gray-500">{prod.product.discountPrice}</div>
                   </td>
                   <td className="text-left font-medium text-sm">
                     <div>
                       <a className="hover:cursor-pointer border rounded-md mx-1 text-green-500 hover:text-green-300 py-1 px-4">Buy</a>
                       <a
-                        onClick={(e) => deleteProduct(product.id)}
+                        onClick={(e) => deleteProduct(prod.product.id)}
                         className="hover:cursor-pointer border rounded-md mx-1 text-red-700 hover:text-red-500 py-1 px-4"
                       >
                         Delete

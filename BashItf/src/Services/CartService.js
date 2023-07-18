@@ -12,7 +12,7 @@ class CartService{
     static deleteProductFromCart(id){
         return axios.delete(PRODUCT_IN_CART_API_BASE_URL+"/"+id);
     };
-      
+        
 }
 
 export default CartService;

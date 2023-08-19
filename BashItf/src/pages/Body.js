@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Products from '../Components/Products';
+import Products from '../pages/Products';
 import ProductsService from '../Services/ProductsService';
 
 function Body() {

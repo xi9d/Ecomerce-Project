@@ -17,10 +17,9 @@ function App() {
     <BrowserRouter>
     <Navbar/>
     <Routes>
-      <Route index element={<Main/>}/>
-      <Route path="/" element={<Main/>}/>
+      <Route index element={<SignUp/>}/>
+      <Route path="/" element={<SignUp/>}/>
       <Route path="/index" element={<Main/>}/>
-      <Route path="/account" element={<SignUp/>}/>
       <Route path="/viewproduct/:id" element={<ViewProduct />} />
       <Route path="/login" element={<Login/>}/>
       <Route path="/category/:category" element={<Category/>}/>

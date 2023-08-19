@@ -17,22 +17,17 @@ import java.util.Date;
 @Component
 @RequiredArgsConstructor
 public class JwtTokenProvider {
-    @Value("${jwt.secret}")
-    private String secret;
+    
+    private String secret = "5586CA247556F2B567A9CA718083323EEEE7E1F82C03DD2961B5CB2B2BF21CB4";
 
-    @Value("${jwt.expiration}")
-    private int expiration;
 
-    private final Account account;
+    private Account account;
 
     public String generateToken(UserDetails userDetails) {
-        Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + expiration);
-
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
-                .setIssuedAt(now)
-                .setExpiration(expiryDate)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 *24))
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }

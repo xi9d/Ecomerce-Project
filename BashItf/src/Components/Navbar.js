@@ -1,7 +1,4 @@
 import React from 'react'
-import cart from './cart.png'
-import  menu from './menu.png'
-import account from './templatepic2.jpg'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -23,18 +20,6 @@ function Navbar() {
           <p className='my-4  text-white px-2 py-2 cursor-pointer bg-orange-700 flex rounded-md'
           onClick={() => navigate("/addProduct")}>Add product</p>
 
-       <div className='mt-3 mx-5 cursor-pointer flex'>
-        <img src={cart} 
-        className='lg:w-6 mt-3 lg:h-6 w-2 h-2 '
-        onClick={() => navigate("/cart")}/>
-        <p className='-ml-3 -mt-1 text-orange-700  font-bold h-4 w-4 '>0</p>
-       </div>
-
-        
-       <p  className='my-4 font-semibold text-white mx-4  px-2 py-2 cursor-pointer bg-orange-700 flex rounded-md'
-        onClick={() => navigate("/account")}>
-       <img src={account} className='w-5  h-5 mx-2 mt-1 '
-       />profile</p>
         </div>
       
       </div>

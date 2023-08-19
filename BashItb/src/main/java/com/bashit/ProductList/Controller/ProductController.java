@@ -10,9 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +17,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/product")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
     private final ProductService productService;
     @PostMapping
@@ -72,7 +68,6 @@ public class ProductController {
         return ResponseEntity.ok(removed);
     }
 
-    // TODO: get products by categories
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Product>> getProductByCategory(@PathVariable String category){
         List<Product> productsByCategory = productService.getAllProductsByCategory(category);

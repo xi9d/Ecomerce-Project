@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CartService from '../Services/CartService';
-import Cart from '../Components/Cart';
+import Cart from '../pages/Cart';
 
 function ShoppingCart() {
   const [loading, setLoading] = useState(true);
